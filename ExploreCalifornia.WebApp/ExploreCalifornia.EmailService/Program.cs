@@ -21,7 +21,7 @@ namespace ExploreCalifornia.EmailService
             var cosumer = new EventingBasicConsumer(channel);
             cosumer.Received += (sender, eventArgs) =>
             {
-                var msg = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
+                var msg = Encoding.UTF8.GetString(eventArgs.Body.Span);
                 Console.WriteLine(msg);
             };
 
